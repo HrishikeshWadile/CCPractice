@@ -1,0 +1,124 @@
+# 1. Basic Linux Setup & File Handling
+## Objective: Work with files/directories in a cloud VM
+pwd
+ls -l
+mkdir cloud_practical
+cd cloud_practical
+touch file1.txt
+echo "Hello Cloud" > file1.txt
+cat file1.txt
+cp file1.txt file2.txt
+mv file2.txt renamed.txt
+rm renamed.txt
+
+### What to say: File management in cloud VM (storage basics)
+
+# 2: User & Permission Management (Cloud Security)
+## Objective: Simulate IAM-like control
+sudo adduser testuser
+sudo passwd testuser
+su testuser
+whoami
+exit
+
+chmod 700 file1.txt
+chmod +x file1.txt
+ls -l
+
+### What to say: Access control & security in cloud systems
+
+# 3: Package Installation (Cloud Software Setup)
+## Objective: Install software on cloud server
+sudo apt update
+sudo apt install nginx -y
+
+## Check:
+
+systemctl status nginx
+
+### What to say: Installing services on cloud VM
+
+# 4: Web Server Deployment (IMPORTANT)
+## Objective: Deploy a web server
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+## Check in browser:
+
+http://<your-vm-ip>
+
+## Find IP:
+
+ip a
+
+### What to say: Hosting application on cloud infrastructure
+
+# 5: Networking Commands
+## Objective: Check connectivity
+ping google.com
+curl http://localhost
+netstat -tuln
+ss -tuln
+
+### What to say: Network debugging in cloud
+
+# Experiment 6: Process Management
+## Objective: Monitor running services
+ps aux | grep nginx
+top
+kill -9 <pid>
+
+### What to say: Resource & process management
+
+# Experiment 7: Disk & Storage
+## Objective: Monitor storage usage
+df -h
+du -sh *
+lsblk
+
+### What to say: Cloud storage monitoring
+
+# Experiment 8: Log Monitoring (DevOps Debugging)
+## Objective: View logs
+tail -f /var/log/syslog
+journalctl -u nginx
+
+### What to say: Troubleshooting cloud services
+
+# Experiment 9: SSH (Remote Access) VERY IMPORTANT
+## Objective: Connect to cloud VM
+ssh username@ip_address
+
+## File transfer:
+
+scp file.txt username@ip:/home/username/
+
+### What to say: Remote cloud management
+
+# Experiment 10: Automation using Cron
+## Objective: Automate tasks
+crontab -e
+
+## Example:
+
+* * * * * echo "Cloud Task" >> test.txt
+
+### What to say: Automation in DevOps
+
+# Experiment 11: Compression (Cloud Backup)
+tar -cvf backup.tar cloud_practical/
+tar -xvf backup.tar
+
+### What to say: Backup & storage optimization
+
+# Experiment 12: Docker (If included → HIGH IMPACT)
+## Objective: Container-based deployment
+docker pull nginx
+docker run -d -p 8080:80 nginx
+docker ps
+
+## Check:
+
+http://localhost:8080
+
+### What to say: Containerization in cloud
